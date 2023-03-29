@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     public CharacterController characterController;
     public float speed = 5f;
     private Animator anim;
+
+    private int state;
     public static int IDLE = 0;
     public static int WALK = 1;
     public static int ATTACK = 2;
@@ -30,20 +32,25 @@ public class Player : MonoBehaviour
 
         if (dir.magnitude >= 0.1f)
         {
-            anim.SetInteger("State", WALK);
+            state = WALK;
             characterController.Move(dir * speed * Time.deltaTime);
+        } else
+        {
+            state = IDLE;
         }
 
         if (Input.GetKey(KeyCode.Q))
         {
-            anim.SetInteger("State", ATTACK);
+            state = ATTACK;
         }
 
         if (Input.GetKey(KeyCode.E))
         {
-            anim.SetInteger("State", ATTACK2);
+            state = ATTACK2;
         }
+        
 
+        anim.SetInteger("State", state);
     }
 
     private void FixedUpdate()
