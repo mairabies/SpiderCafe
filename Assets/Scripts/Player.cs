@@ -5,8 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private Rigidbody rb;
-    public CharacterController characterController;
-    public float speed = 5f;
+    public float speed;
+    public float turnSpeed;
     private Animator anim;
 
     private int state;
@@ -26,14 +26,13 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
-        Vector3 dir = new Vector3(horizontal, 0f, vertical).normalized;
+        float vertical = Input.GetAxisRaw("Vertical") * speed * Time.deltaTime;
+        Vector3 dir = new Vector3(0f, vertical, 0f).normalized;
 
         if (dir.magnitude >= 0.1f)
         {
             state = WALK;
-            characterController.Move(dir * speed * Time.deltaTime);
+            rb.MovePosition(dir);
         } else
         {
             state = IDLE;
@@ -49,6 +48,15 @@ public class Player : MonoBehaviour
             state = ATTACK2;
         }
         
+        if (Input.GetKey(KeyCode.A))
+        {
+            transform.Rotate(0f, -turnSpeed * Time.deltaTime, 0f);
+        }
+
+        if (Input.GetKey(KeyCode.D))
+        {
+            transform.Rotate(0f, turnSpeed * Time.deltaTime, 0f);
+        }
 
         anim.SetInteger("State", state);
     }
