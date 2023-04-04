@@ -68,23 +68,11 @@ public class Player : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.tag.Equals("Interactable"))
-        {
-            Debug.Log("colliding");
-            interactable = true;
-
-            //have Interactions script and bool interactable inside. Set to true when collidiing, when true make "F to interact" variable visible
-            //Problem: how to choose which object to select when colliding with more than one
-            //interactable bool will also be condition for picking up and moving stuff
-        }
+       
     }
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.tag.Equals("Interactable"))
-        {
-            Debug.Log("exited collision");
-            interactable = false;
-        }
+        
     }
 }
