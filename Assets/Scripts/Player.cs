@@ -65,14 +65,4 @@ public class Player : MonoBehaviour
     {
 
     }
-
-    private void OnCollisionStay(Collision collision)
-    {
-       
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        
-    }
 }
