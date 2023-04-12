@@ -33,6 +33,7 @@ public class cutsceneanimation : MonoBehaviour
             timer = 0f; 
         }
 
+
         if (Input.GetKeyDown(KeyCode.D))
         {
             SceneManager.LoadScene("DecorativeScene");
