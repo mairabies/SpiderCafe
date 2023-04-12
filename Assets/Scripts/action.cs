@@ -5,15 +5,24 @@ using UnityEngine;
 public class action : MonoBehaviour
 {
     private Player player;
-    private bool vis = true;
+    Interactable interactable;
     private void Start()
     {
-        player = GameObject.Find("Player").GetComponent<Player>();    
+        player = GameObject.Find("Player").GetComponent<Player>();
+        interactable = GameObject.Find("Cube").GetComponent<Interactable>();
     }
 
     public void buttonMethod()
     {
-        Debug.Log("clicked");
-        gameObject.transform.SetParent(player.transform, true);
+        if (interactable.hold)
+        {
+            Debug.Log("held");
+            gameObject.GetComponentInParent<Transform>().SetParent(player.transform, true);
+        } else
+        {
+            Debug.Log("unheld");
+            player.GetComponentInChildren<Transform>().SetParent(gameObject.transform, true);
+        }
+        //gameObject.GetComponentInParent<GameObject>().transform.SetParent(player.transform, true);
     }
 }

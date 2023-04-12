@@ -8,6 +8,7 @@ public class Interactable : MonoBehaviour
 {
     public UnityEvent ue;
     public GameObject button;
+    public bool hold;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,10 +21,20 @@ public class Interactable : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == gameObject)
             {
+                hold = true;
+                ue.Invoke();
+            }
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == gameObject)
+            {
+                hold = false;
                 ue.Invoke();
             }
         }
