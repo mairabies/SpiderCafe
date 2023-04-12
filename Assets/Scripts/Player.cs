@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     private Rigidbody rb;
     public float speed;
+    public float jumpPower;
     public float turnSpeed;
     private Animator anim;
     private bool interactable;
@@ -26,13 +27,19 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float vertical = Input.GetAxisRaw("Vertical") * speed * Time.deltaTime;
-        Vector3 dir = new Vector3(0f, 0f, vertical).normalized;
+        float vertical = Input.GetAxisRaw("Vertical");
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        rb.velocity = new Vector3(horizontal * speed, rb.velocity.y, vertical * speed);
 
-        if (dir.magnitude >= 0.1f)
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.velocity = new Vector3(rb.velocity.x, jumpPower, rb.velocity.z);
+        }
+        
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
         {
             state = WALK;
-            rb.MovePosition(dir);
         } else
         {
             state = IDLE;
@@ -50,12 +57,12 @@ public class Player : MonoBehaviour
         
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Rotate(0f, -turnSpeed * Time.deltaTime, 0f);
+            //transform.Rotate(0f, -turnSpeed * Time.deltaTime, 0f);
         }
 
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Rotate(0f, turnSpeed * Time.deltaTime, 0f);
+            //transform.Rotate(0f, turnSpeed * Time.deltaTime, 0f);
         }
 
         anim.SetInteger("State", state);
