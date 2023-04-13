@@ -25,16 +25,7 @@ public class Interactable : MonoBehaviour
         {
             if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == gameObject)
             {
-                hold = true;
-                ue.Invoke();
-            }
-        }
-
-        if (Input.GetMouseButtonDown(1))
-        {
-            if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == gameObject)
-            {
-                hold = false;
+                hold = !hold;
                 ue.Invoke();
             }
         }

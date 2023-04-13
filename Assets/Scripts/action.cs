@@ -9,20 +9,18 @@ public class action : MonoBehaviour
     private void Start()
     {
         player = GameObject.Find("Player").GetComponent<Player>();
-        interactable = GameObject.Find("Cube").GetComponent<Interactable>();
+        interactable = GetComponent<Interactable>();
     }
 
     public void buttonMethod()
     {
         if (interactable.hold)
         {
-            Debug.Log("held");
-            gameObject.GetComponentInParent<Transform>().SetParent(player.transform, true);
-        } else
-        {
-            Debug.Log("unheld");
-            player.GetComponentInChildren<Transform>().SetParent(gameObject.transform, true);
+            gameObject.transform.SetParent(player.transform, true);
         }
-        //gameObject.GetComponentInParent<GameObject>().transform.SetParent(player.transform, true);
+        else if (!interactable.hold)
+        {
+            gameObject.transform.SetParent(null, true);
+        }
     }
 }
