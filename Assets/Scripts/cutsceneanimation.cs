@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
+using Unity.Jobs;
 
 public class cutsceneanimation : MonoBehaviour
 {
@@ -34,10 +36,21 @@ public class cutsceneanimation : MonoBehaviour
         }
 
 
+        /*if (timer < 5f)
+        {
+            happy.enabled = true;
+            bakery.enabled = false;
+        }*/
+
+        
+
+
+
         if (Input.GetKeyDown(KeyCode.D))
         {
             SceneManager.LoadScene("DecorativeScene");
         }
+
     }
 
     }
