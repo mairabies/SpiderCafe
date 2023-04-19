@@ -15,7 +15,6 @@ public class Player : MonoBehaviour
     public static int IDLE = 0;
     public static int WALK = 1;
     public static int ATTACK = 2;
-    public static int ATTACK2 = 3;
 
     // Start is called before the first frame update
     void Start()
@@ -45,25 +44,20 @@ public class Player : MonoBehaviour
             state = IDLE;
         }
 
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetMouseButton(0))
         {
             state = ATTACK;
         }
-
-        if (Input.GetKey(KeyCode.E))
-        {
-            state = ATTACK2;
-        }
         
-        if (Input.GetKey(KeyCode.A))
+        /*if (Input.GetKey(KeyCode.A))
         {
-            //transform.Rotate(0f, -turnSpeed * Time.deltaTime, 0f);
+            transform.Rotate(0f, -turnSpeed * Time.deltaTime, 0f);
         }
 
         if (Input.GetKey(KeyCode.D))
         {
-            //transform.Rotate(0f, turnSpeed * Time.deltaTime, 0f);
-        }
+            transform.Rotate(0f, turnSpeed * Time.deltaTime, 0f);
+        }*/
 
         anim.SetInteger("State", state);
     }
@@ -71,15 +65,5 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
 
-    }
-
-    private void OnCollisionStay(Collision collision)
-    {
-       
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        
     }
 }

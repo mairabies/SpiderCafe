@@ -6,9 +6,9 @@ using UnityEngine.Events;
 
 public class Interactable : MonoBehaviour
 {
-    public bool interactable;
     public UnityEvent ue;
     public GameObject button;
+    public bool hold;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +25,7 @@ public class Interactable : MonoBehaviour
         {
             if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == gameObject)
             {
+                hold = !hold;
                 ue.Invoke();
             }
         }
