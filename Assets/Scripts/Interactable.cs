@@ -9,10 +9,12 @@ public class Interactable : MonoBehaviour
     public UnityEvent ue;
     public GameObject button;
     public bool hold;
+    Player player;
     // Start is called before the first frame update
     void Start()
     {
         button = this.gameObject;
+        player = GameObject.Find("Player").GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -20,6 +22,8 @@ public class Interactable : MonoBehaviour
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
+        //player.holding = hold;
+
 
         if (Input.GetMouseButtonDown(0))
         {

@@ -15,12 +15,14 @@ public class Player : MonoBehaviour
     public static int IDLE = 0;
     public static int WALK = 1;
     public static int ATTACK = 2;
+    public bool holding;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
+        //holding = false;
     }
 
     // Update is called once per frame
@@ -48,16 +50,6 @@ public class Player : MonoBehaviour
         {
             state = ATTACK;
         }
-        
-        /*if (Input.GetKey(KeyCode.A))
-        {
-            transform.Rotate(0f, -turnSpeed * Time.deltaTime, 0f);
-        }
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.Rotate(0f, turnSpeed * Time.deltaTime, 0f);
-        }*/
 
         anim.SetInteger("State", state);
     }

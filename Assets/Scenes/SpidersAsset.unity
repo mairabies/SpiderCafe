@@ -294,6 +294,7 @@ MonoBehaviour:
   speed: 5
   jumpPower: 5
   turnSpeed: 15
+  holding: 0
 --- !u!95 &825384554
 Animator:
   serializedVersion: 4
