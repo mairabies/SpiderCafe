@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class Interactable : MonoBehaviour
 {
     public UnityEvent ue;
-    public GameObject button;
+    private GameObject button;
     public bool hold;
     Player player;
     // Start is called before the first frame update

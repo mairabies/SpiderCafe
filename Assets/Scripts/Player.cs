@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
     {
         float vertical = Input.GetAxisRaw("Vertical");
         float horizontal = Input.GetAxisRaw("Horizontal");
-        rb.velocity = new Vector3(horizontal * speed, rb.velocity.y, vertical * speed);
+        rb.velocity = new Vector3(-horizontal * speed, rb.velocity.y, vertical * speed);
 
 
         if (Input.GetKeyDown(KeyCode.Space))
