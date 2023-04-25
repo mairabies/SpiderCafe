@@ -20,6 +20,7 @@ public class action : MonoBehaviour
         }
         else if (!interactable.hold)
         {
+            Debug.Log("release");
             gameObject.transform.SetParent(null, true);
         }
     }
