@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class TutorialTextController : MonoBehaviour
 {
@@ -10,7 +11,8 @@ public class TutorialTextController : MonoBehaviour
      TextMeshProUGUI joe;
     bool cupcakehold = false;
     int clicknumber = 0;
-
+    public TextMeshProUGUI scoreText;
+    private int score;
     bool tutorialOver = false; 
     void Start()
     {
@@ -44,6 +46,8 @@ public class TutorialTextController : MonoBehaviour
             clicknumber++;
             tutorialOver = true;
             joe.text = "Well Done! Tutorial Over. +100 Revenge Points";
+            score += 100;
+            scoreText.text = "Score: " + score;
         }
 
 
