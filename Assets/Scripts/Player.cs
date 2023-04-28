@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
@@ -29,13 +30,18 @@ public class Player : MonoBehaviour
     void Update()
     {
         float vertical = Input.GetAxisRaw("Vertical");
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        rb.velocity = new Vector3(-horizontal * speed, rb.velocity.y, vertical * speed);
+        //float horizontal = Input.GetAxisRaw("Horizontal");
+        rb.velocity = new Vector3(0, rb.velocity.y, vertical * speed);
 
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
             rb.velocity = new Vector3(rb.velocity.x, jumpPower, rb.velocity.z);
+        } 
+
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
+        {
+            transform.Rotate(0, speed * Time.deltaTime, 0);
         }
         
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
@@ -46,7 +52,7 @@ public class Player : MonoBehaviour
             state = IDLE;
         }
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetKeyDown(KeyCode.C))
         {
             state = ATTACK;
         }
