@@ -111,7 +111,7 @@ namespace PW
         {
             if (canFillCup)
             {
-                StartFillingStep();
+                StartFillingStep();  //this is what I need to call for chef idle animations to start. 
             }
         }
 
