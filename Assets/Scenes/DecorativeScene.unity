@@ -324,7 +324,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 16701205}
-  m_LocalRotation: {x: 0.104109846, y: -0.00000001711288, z: 0.000000001791354, w: 0.99456584}
+  m_LocalRotation: {x: 0.104109846, y: 0.000000017112876, z: -0.0000000017913536, w: 0.99456584}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -13095,7 +13095,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1199386631}
-  m_LocalRotation: {x: 0.12218327, y: -0.000000017077465, z: 0.0000000021023319, w: 0.9925076}
+  m_LocalRotation: {x: 0.12218325, y: 0.000000017077465, z: -0.0000000021023316, w: 0.9925076}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -18149,7 +18149,6 @@ GameObject:
   - component: {fileID: 1632809499}
   - component: {fileID: 1632809498}
   - component: {fileID: 1632809497}
-  - component: {fileID: 1632809501}
   - component: {fileID: 1632809502}
   m_Layer: 0
   m_Name: Main Camera
@@ -18224,7 +18223,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1632809496}
-  m_LocalRotation: {x: 0.104109846, y: -0.000000034225764, z: 0.0000000035827075, w: 0.99456584}
+  m_LocalRotation: {x: 0.104109846, y: 0.00000003422576, z: -0.0000000035827072, w: 0.99456584}
   m_LocalPosition: {x: -14.912303, y: 9.068, z: -2.1763186}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
@@ -18233,18 +18232,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 21.834002, y: 173.169, z: -0.753}
---- !u!114 &1632809501
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1632809496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91a6bcb1f63ad174ab1af16ad8cc524e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1632809502
 MonoBehaviour:
   m_ObjectHideFlags: 0
