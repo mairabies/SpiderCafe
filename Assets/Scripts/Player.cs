@@ -5,12 +5,7 @@ using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
-    private Rigidbody rb;
-    public float speed;
-    public float jumpPower;
-    public float turnSpeed;
     private Animator anim;
-    private bool interactable;
 
     private int state;
     public static int IDLE = 0;
@@ -21,29 +16,13 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         //holding = false;
     }
 
     // Update is called once per frame
     void Update()
-    {
-        float vertical = Input.GetAxisRaw("Vertical");
-        //float horizontal = Input.GetAxisRaw("Horizontal");
-        rb.velocity = new Vector3(0, rb.velocity.y, vertical * speed);
-
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            rb.velocity = new Vector3(rb.velocity.x, jumpPower, rb.velocity.z);
-        } 
-
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
-        {
-            transform.Rotate(0, speed * Time.deltaTime, 0);
-        }
-        
+    {     
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
         {
             state = WALK;
