@@ -11,7 +11,9 @@ public class Player : MonoBehaviour
     public static int IDLE = 0;
     public static int WALK = 1;
     public static int ATTACK = 2;
+    public static int DEATH = 3;
     public bool holding;
+    public Vector2 respawnPoint;
 
     // Start is called before the first frame update
     void Start()
@@ -22,8 +24,8 @@ public class Player : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {     
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
+    {
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
         {
             state = WALK;
         } else
@@ -31,7 +33,7 @@ public class Player : MonoBehaviour
             state = IDLE;
         }
 
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKey(KeyCode.C))
         {
             state = ATTACK;
         }
@@ -42,5 +44,21 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
 
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag.Equals("Interactable"))
+        {
+            Debug.Log("collide");
+            Death();
+        }
+    }
+
+    void Death()
+    {
+        state = DEATH;
+        anim.SetInteger("State", state);
+        transform.position = respawnPoint;
     }
 }

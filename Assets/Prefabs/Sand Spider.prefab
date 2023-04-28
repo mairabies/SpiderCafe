@@ -387,10 +387,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2082831617555776721}
-  - component: {fileID: 825384559}
-  - component: {fileID: 825384560}
-  - component: {fileID: 825384554}
   - component: {fileID: 825384553}
+  - component: {fileID: 1043534706}
+  - component: {fileID: 1043534713}
+  - component: {fileID: 1043534707}
+  - component: {fileID: 1043534712}
   m_Layer: 0
   m_Name: Sand Spider
   m_TagString: Untagged
@@ -407,8 +408,8 @@ Transform:
   m_GameObject: {fileID: 1705849404070370923}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1707636286740544200}
   - {fileID: 991334199354024189}
@@ -421,24 +422,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &825384559
-Rigidbody:
+--- !u!114 &825384553
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1705849404070370923}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 80
-  m_CollisionDetection: 0
---- !u!136 &825384560
-CapsuleCollider:
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b819f0e1bf2397643a6e498ab487d046, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holding: 0
+--- !u!65 &1043534706
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -447,11 +445,28 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.0282965, y: 2.071581, z: 4.093748}
+  m_Center: {x: 0.08505106, y: 1.0399771, z: -0.3509514}
+--- !u!143 &1043534713
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705849404070370923}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
   m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0, z: 0}
---- !u!95 &825384554
+--- !u!95 &1043534707
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -471,7 +486,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &825384553
+--- !u!114 &1043534712
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -480,13 +495,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1705849404070370923}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b819f0e1bf2397643a6e498ab487d046, type: 3}
+  m_Script: {fileID: 11500000, guid: 948be4468c7b82f47b208ceb3c7944c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  jumpPower: 5
-  turnSpeed: 15
-  holding: 0
+  movementControl: {fileID: -3741093426301298563, guid: 1e729567794e2364786e0ab5c091c035, type: 3}
+  jumpControl: {fileID: -4868384748241674225, guid: 1e729567794e2364786e0ab5c091c035, type: 3}
+  playerSpeed: 2
+  jumpHeight: 1
+  gravityValue: -9.81
+  rotationSpeed: 4
 --- !u!1 &1729693869659672010
 GameObject:
   m_ObjectHideFlags: 0
